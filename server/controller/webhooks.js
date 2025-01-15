@@ -1,5 +1,5 @@
 import { Webhook } from "svix";
-import User from "../models/User.js"; // Ensure the file name and path match the actual location and casing.
+import User from "../models/User";
 
 const clerkWebhooks = async (req, res) => {
   try {
