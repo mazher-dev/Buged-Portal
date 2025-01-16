@@ -6,7 +6,7 @@ export const clearWebhooks = async (req, res) => {
 
         const wbook =  new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
-        await whook.verify(JSON.stringify(req.body),{
+        await wbook.verify(JSON.stringify(req.body),{
             "swix-id": req.headers["swix-id"],
             "swix-timestamp": req.headers["swix-timestamp"],
             "swix-signature": req.headers["swix-signature"]
