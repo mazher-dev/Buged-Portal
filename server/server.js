@@ -4,7 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import * as Sentry from "@sentry/node";
-import clerkWebhooks from './controller/webhooks.js';
+import { clearWebhooks } from './controller/webhooks.js';
+
 
 // Load environment variables
 dotenv.config();
@@ -24,7 +25,7 @@ app.get("/", (req, res) => res.send("API Working"));
 app.get("/debug-sentry", (req, res) => {
   throw new Error("Testing Sentry integration.");
 });
-app.post('/webhooks', clerkWebhooks);
+app.post('/webhooks', clearWebhooks);
 
 // Sentry error handler
 Sentry.setupExpressErrorHandler(app);
